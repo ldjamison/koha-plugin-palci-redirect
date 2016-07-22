@@ -39,7 +39,7 @@ my ( $template, $borrowernumber, $cookie ) = get_template_and_user(
 );
 
 ## Relais institution code
-my $institutionCode = "MWOOD";
+my $institutionCode = "";
 
 ## Base URL for E-ZBorrow NCIP Authentication
 my $baseURL = "https://e-zborrow.relaisd2d.com/service-proxy/?command=mkauth&LS=$institutionCode&PI=";
