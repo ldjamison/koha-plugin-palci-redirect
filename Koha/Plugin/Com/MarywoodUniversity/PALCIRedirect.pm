@@ -4,7 +4,7 @@ package Koha::Plugin::Com::MarywoodUniversity::PALCIRedirect;
 use Modern::Perl;
 
 ## Required for all plugins
-use base qw(Koha::Plugins::Base);
+use base qw( Koha::Plugins::Base );
 
 ## We will also need to include any Koha libraries we want to access
 use C4::Auth;
@@ -16,9 +16,9 @@ our $VERSION = 1.00;
 
 ## Here is our metadata. Some keys are required while some are optional.
 our $metadata = {
-	name	=> 'PALCI Redirect',
-	author	=> 'Lee Jamison',
-	description	=> 'This plugin enables PALCI members to leverage Koha LDAP authentication to login to PALCI E-ZBorrow',
+	name			=> 'PALCI Redirect',
+	author			=> 'Lee Jamison',
+	description		=> 'This plugin enables PALCI members to leverage Koha LDAP authentication to login to PALCI E-ZBorrow',
 	date_authored	=> '2016-07-22',
 	date_updated	=> '2016-07-22',
 	minimum_version	=> '3.16',
@@ -38,7 +38,7 @@ sub new {
 	## Here, we call the 'new' method for our base class.
 	## This runs some additional magic and checking and
 	## returns our actual $self
-	my $self = $class->SUPER::new($args);
+	my $self = $class->SUPER::new( $args );
 	
 	return $self;
 }
@@ -52,7 +52,7 @@ sub tool {
 	
 	my $cgi = $self->{'cgi'};
 	
-	my $template = $self->get_template({ file => 'palci-redirect-tool.tt' });
+	my $template = $self->get_template( { file => 'palci-redirect-tool.tt' } );
 	
 	print $cgi->header();
 	print $template->output();
