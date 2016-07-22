@@ -1,0 +1,32 @@
+[% USE Koha %]
+[% USE Branches %]
+[% INCLUDE 'doc-head-open.inc' %]
+<title>[% IF ( LibraryNameTitle ) %][% LibraryNameTitle %][% ELSE %]Koha online[% END %] catalog &rsaquo; E-ZBorrow</title>
+[% INCLUDE 'doc-head-close.inc' %]
+[% BLOCK cssinclude %]
+[% END %]
+</head>
+
+[% INCLUDE 'bodytag.inc' bodyid='opac-main' %]
+[% INCLUDE 'masthead.inc' %]
+
+<div class="main"
+	<ul class="breadcrumb">
+		<li><a href="/cgi-bin/koha/opac-main.pl">Home</a> <span class="divider">&rsaquo;</span></li>
+		<li><a href="#">E-ZBorrow</a></li>
+	</ul>
+	
+	<div class="container-fluid">
+		<div class="row-fluid">
+			<div class="span12">
+				
+				<h1>E-ZBorrow</h1>
+				<p><b>Redirecting...</b></p>
+				
+			</div> <!-- / .span12 -->
+		</div> <!-- / .row-fluid -->
+	</div> <!-- / .container-fluid -->
+</div> <!-- / .main -->
+[% INCLUDE 'opac-bottom.inc' %]
+[% BLOCK jsinclude %]
+[% END %]
