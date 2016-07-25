@@ -1,5 +1,4 @@
 #!/usr/bin/perl
-
 #
 # Copyright 2016 Marywood University
 #
@@ -20,11 +19,11 @@
 
 use Modern::Perl;
 
-use CGI qw ( -utf8 );
-
-use C4::Auth;
 use C4::Context;
 use C4::Output;
+use C4::Auth;
+
+use CGI qw ( -utf8 );
 
 my $cgi = new CGI;
 
