@@ -32,7 +32,7 @@ my ( $template, $borrowernumber, $cookie ) = get_template_and_user(
 		template_name	=> "palci-redirect.tt",
 		query			=> $cgi,
 		type			=> "opac",
-		authnotrequired	=> 1,
+		authnotrequired	=> 0,
 		debug			=> 1,
 	}
 );
