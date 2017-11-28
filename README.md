@@ -45,11 +45,13 @@ Finally, create an access point on the OPAC (in this case, in the form of a link
 
 The following code is added to Koha's OPACUserJS System Preference which will create an OPAC link in the header between Course Reserves and Recent Comments:
 
+```javascript
 /* Add PALCI link for redirection plugin script */
 $( "<li><a id='palci-redirect' href='/palci'>PALCI</a></li>" ).insertAfter( "#moresearches ul li:nth-child(2)" );
 if ( ! $('.loggedinusername').length ) {
-	$("#palci-redirect").addClass("loginModal-trigger");
+  $("#palci-redirect").addClass("loginModal-trigger");
 }
+```
 
 Once the OPAC link is created, being logged into Koha and clicking the PALCI link should now automatically authenticate patrons via NCIP.
 
