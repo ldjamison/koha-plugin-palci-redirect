@@ -41,7 +41,7 @@ my ( $template, $borrowernumber, $cookie ) = get_template_and_user(
 my $institutionCode = "";
 
 ## Base URL for E-ZBorrow NCIP Authentication
-my $baseURL = "https://e-zborrow.relaisd2d.com/service-proxy/?command=mkauth&LS=$institutionCode&PI=";
+my $baseURL = "https://ezb.relaisd2d.com/?LS=$institutionCode&PI=";
 
 ## Currently logged in user's card number (barcode)
 my $cardNumber = C4::Context->userenv->{'cardnumber'};
