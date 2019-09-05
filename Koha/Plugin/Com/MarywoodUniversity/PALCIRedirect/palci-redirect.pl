@@ -38,7 +38,7 @@ my ( $template, $borrowernumber, $cookie ) = get_template_and_user(
 );
 
 ## Relais institution code
-my $institutionCode = "";
+my $institutionCode = getInstitutionCode();
 
 ## Base URL for E-ZBorrow NCIP Authentication
 my $baseURL = "https://ezb.relaisd2d.com/?LS=$institutionCode&PI=";
@@ -48,3 +48,15 @@ my $cardNumber = C4::Context->userenv->{'cardnumber'};
 
 ## Redirect the page to E-ZBorrow with current user's card number appended to the end of URL
 print $cgi->redirect( $baseURL . $cardNumber );
+
+sub getInstitutionCode {
+
+	my $dbh = C4::Context->dbh;
+	my $sql = "SELECT plugin_value FROM plugin_data WHERE plugin_class = ? AND plugin_key = ?";
+
+	my $sth = $dbh->prepare($sql);
+    $sth->execute( 'Koha::Plugin::Com::MarywoodUniversity::PALCIRedirect', 'institutional_code' );
+    my $row = $sth->fetchrow_hashref();
+
+    return $row->{'plugin_value'};
+}

@@ -1,0 +1,28 @@
+[% INCLUDE 'doc-head-open.inc' %]
+	<title>Koha: PALCI Redirect Plugin: Configure</title>
+[% INCLUDE 'doc-head-close.inc' %]
+</head>
+<body>
+[% INCLUDE 'header.inc' %]
+[% INCLUDE 'cat-search.inc' %]
+
+<div id="breadcrumbs"><a href="/cgi-bin/koha/mainpage.pl">Home</a> &rsaquo; <a href="/cgi-bin/koha/plugins/plugins-home.pl">Plugins</a> &rsaquo; PALCI Redirect &rsaquo; Configure</div>
+
+<div id="doc3">
+    
+    <h3>Koha: PALCI Redirect Plugin: Configuration</h3>
+
+    [% IF op == '' %]
+    <form name="display_config" method="post" action="#">
+        <input type="hidden" name="class" value="[% CLASS %]"/>
+        <input type="hidden" name="method" value="[% METHOD %]"/>
+        <input type="hidden" name="op" value="set-institutional-code" />
+
+        <p>Current institutional code: <input style="border: none;" type="text" name="current-institutional-code" value="[% institutional_code %]" /></p>
+        <p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Set institutional code: <input type="text" name="set-institutional-code"/></p>
+
+        <input name="submitted" type="submit" value="submitted" />
+    </form>
+    [% END # op == '' %]
+
+[% INCLUDE 'intranet-bottom.inc' %]
