@@ -55,6 +55,19 @@ if ( ! $('.loggedinusername').length ) {
 
 Once the OPAC link is created, being logged into Koha and clicking the PALCI link should now automatically authenticate patrons via NCIP.
 
+# OPAC Error 403
+
+Add the following to `/etc/apache2/apache2.conf` if you encounter 403 errors
+
+**Important**
+The following directory stanza is only required in **Apache 2.4+**. `Require all granted` will result in breaks on **Apache 2.2 and below**.
+    
+    <Directory /var/lib/koha/kohadev/plugins/>
+        Options Indexes FollowSymLinks
+        AllowOverride None
+        Require all granted
+    </Directory>
+
 # OPAC Error 500
 
 If you compile/upload the plugin from a Windows machine and you encounter an OPAC error 500 after completing the configuration as directed, this could be caused by DOS vs Unix endline characters OR by `palci-redirect.pl` file permissions. To fix this, run `palci-redirect.pl` through the `dos2unix` [Debian package](https://packages.debian.org/source/jessie/amd64/dos2unix) using the command `dos2unix palci-redirect.pl`. Second, verify that `palci-redirect.pl` is executable using the command `chmod +x palci-redirect.pl`.
